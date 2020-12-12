@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9c5a8003-1c58-4207-b843-85f2355aaf4a",
+		"_postman_id": "45b4c2a4-283a-497e-ab5b-4ba16b861182",
 		"name": "udacity-c2-basic-server",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -10,13 +10,23 @@
 			"item": [
 				{
 					"name": "/cars all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3fa7a733-f8aa-4274-83a7-21514bc7f302",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "http://localhost:8082/cars/",
 							"protocol": "http",
@@ -34,13 +44,23 @@
 				},
 				{
 					"name": "/cars filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "25aad42b-6452-4173-b160-289beea7c605",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "http://localhost:8082/cars/?make=toyota",
 							"protocol": "http",
@@ -64,6 +84,20 @@
 				},
 				{
 					"name": "/cars by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "01b345c6-e342-4648-b477-b120779568a6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -74,10 +108,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "http://localhost:8082/cars/2",
 							"protocol": "http",
@@ -95,6 +125,23 @@
 				},
 				{
 					"name": "/cars",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "af64d60e-44df-4f28-8e47-66e3fed78675",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test('response body matches request body', function() {\r",
+									"    pm.expect(JSON.parse(pm.response.text()).id ).to.equal(JSON.parse(pm.request.body).id);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -123,7 +170,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "http://localhost:8082/",
@@ -131,7 +179,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9b4015b7-faf5-4924-8661-7728ba94e410",
+						"id": "686068c0-9944-4ed4-8475-d0a160fbd310",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -148,10 +196,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8082/",
 					"protocol": "http",
@@ -172,7 +216,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "277a3edb-b69d-4dcd-9b13-00d00faaca25",
+						"id": "d6d27e61-a69d-4ed4-9690-fd380e076f1e",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -190,10 +234,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8082/persons/:name",
 					"protocol": "http",
@@ -221,7 +261,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7df7eec7-78b4-46f4-b2f5-2a7b994747e9",
+						"id": "1a5dd6c7-d7a1-4d39-8297-400b8bf2f427",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -242,10 +282,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8082/persons?name=george",
 					"protocol": "http",
@@ -272,7 +308,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "23433ca1-6ffc-4149-9e3c-97514d889ac5",
+						"id": "deb2fef8-ac55-4571-a0a0-06d4dca5aba0",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -321,7 +357,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "444e71e3-ae8c-469a-9da1-22aa3ee0792d",
+						"id": "a2341d5e-312c-4740-8e59-8f8a92d10d74",
 						"exec": [
 							"pm.test(\"Status code is 400\", function () {",
 							"    pm.response.to.have.status(400);",
@@ -334,10 +370,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8082/persons/",
 					"protocol": "http",
@@ -358,7 +390,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "6f442aeb-7c6b-401b-a76d-03a2c7b2cca9",
+				"id": "ea66ed5a-ea42-4db6-992b-d2f00a280ee7",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -368,7 +400,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "fae73fa3-4d3b-4528-a1af-a150ef18a902",
+				"id": "e00e9c47-49ef-4979-bfa2-dc01a03cdf5c",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -383,5 +415,6 @@
 			"value": "http://localhost:8082",
 			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
